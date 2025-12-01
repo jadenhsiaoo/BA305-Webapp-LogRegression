@@ -14,6 +14,7 @@
     </p>
 
     <form id="prediction-form">
+
         <div class="input-group">
             <label for="loan_amnt">Loan Amount</label>
             <input type="number" step="0.01" id="loan_amnt" name="loan_amnt"
@@ -45,9 +46,15 @@
         </div>
 
         <div class="input-group">
-            <label for="revol_bal">Revolving Balance</label>
-            <input type="number" step="0.01" id="revol_bal" name="revol_bal"
-                   placeholder="e.g. 3000 (optional)">
+            <label for="funded_amnt">Total Amount Committed</label>
+            <input type="number" step="0.01" id="funded_amnt" name="funded_amnt"
+                   placeholder="e.g. 15000 (optional)">
+        </div>
+
+        <div class="input-group">
+            <label for="total_rec_prncp">Total Received Principal</label>
+            <input type="number" step="0.01" id="total_rec_prncp" name="total_rec_prncp"
+                   placeholder="e.g. 500 (optional)">
         </div>
 
         <button type="submit">Predict Default Probability</button>
@@ -56,6 +63,27 @@
     <div id="results">
         <h2 id="prediction-output" style="display:none;"></h2>
         <pre id="filled-inputs" style="display:none; text-align:left;"></pre>
+    </div>
+
+    <!-- ---------------------------------------------------- -->
+    <!-- MODEL EVALUATION GRAPHS SECTION                      -->
+    <!-- ---------------------------------------------------- -->
+
+    <h2 style="margin-top:40px;">Model Evaluation Graphs</h2>
+
+    <div id="evaluation-graphs" style="text-align:center;">
+        
+        <h3>ROC Curve</h3>
+        <img src="/results/roc_curve.png" alt="ROC Curve" style="width:500px;">
+
+        <h3>Precision–Recall Curve</h3>
+        <img src="/results/pr_curve.png" alt="Precision-Recall Curve" style="width:500px;">
+
+        <h3>Confusion Matrix</h3>
+        <img src="/results/confusion_matrix.png" alt="Confusion Matrix" style="width:500px;">
+
+        <h3>Feature Importance</h3>
+        <img src="/results/feature_importance.png" alt="Feature Importance" style="width:500px;">
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>

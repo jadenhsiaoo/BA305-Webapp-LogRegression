@@ -1,6 +1,8 @@
 # app.py
 from flask import Flask, render_template, request, jsonify
 from target import load_model_bundle, predict_single
+from flask import send_from_directory
+import os
 
 app = Flask(__name__)
 
@@ -29,6 +31,11 @@ def predict():
         "prob_default": prob_default,
         "filled_inputs": filled,
     })
+
+# Route to serve evaluation graphs
+@app.route("/results/<path:filename>")
+def results_file(filename):
+    return send_from_directory("results", filename)
 
 
 if __name__ == "__main__":

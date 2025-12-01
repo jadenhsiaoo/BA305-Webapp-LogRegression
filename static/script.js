@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
             dti: document.getElementById("dti").value,
             int_rate: document.getElementById("int_rate").value,
             installment: document.getElementById("installment").value,
-            revol_bal: document.getElementById("revol_bal").value
+            funded_amnt: document.getElementById("funded_amnt").value,
+            total_rec_prncp: document.getElementById("total_rec_prncp").value
         };
 
         fetch("/predict", {
